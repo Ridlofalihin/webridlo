@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Us — Forever & Always</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;1,9..40,200&family=Satisfy&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Floating Hearts Canvas -->
+  <canvas id="heartsCanvas"></canvas>
+
+  <!-- Cursor glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge glass-pill">
+        <span class="pulse-dot"></span>
+        <span>Since December 28, 2025</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="title-line serif-italic">You &amp; Me,</span>
+        <span class="title-line display-bold">Always.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Every moment with you feels like the most beautiful dream I never want to wake from.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="smoothScrollTo('#gallery')">
+          <span>Our Memories</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </button>
+        <button class="btn-ghost" onclick="smoothScrollTo('#music')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          <span>Our Songs</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ===================== QUOTE SECTION ===================== -->
+  <section class="quote-section reveal">
+    <div class="quote-card glass-card">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">In all the world, there is no heart for me like yours. In all the world, there is no love for you like mine.</p>
+      <span class="quote-author">— Maya Angelou</span>
+    </div>
+  </section>
+
+
+  <!-- ===================== MUSIC PLAYER ===================== -->
+  <section class="music-section" id="music">
+    <div class="section-header reveal">
+      <div class="section-tag">Our Playlist</div>
+      <h2 class="section-title">Songs We Love</h2>
+      <p class="section-sub">Every song tells a part of our story</p>
+    </div>
+
+    <div class="player-wrapper reveal">
+      <div class="player-card glass-card">
+
+        <!-- Album Art -->
+        <div class="album-art-wrap">
+          <div class="album-art" id="albumArt">
+            <div class="album-placeholder">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+            </div>
+          </div>
+          <div class="album-spin-ring"></div>
+        </div>
+
+        <!-- Song Info -->
+        <div class="player-info">
+          <div class="song-name" id="songName">Select a song</div>
+          <div class="song-artist" id="songArtist">— Our Playlist</div>
+          <!-- Equalizer bars -->
+          <div class="equalizer" id="equalizer">
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+            <div class="eq-bar"></div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="player-controls">
+          <button class="ctrl-btn" id="prevBtn" title="Previous">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+          </button>
+          <button class="ctrl-btn play-btn" id="playBtn" title="Play/Pause">
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" width="26" height="26" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          </button>
+          <button class="ctrl-btn" id="nextBtn" title="Next">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M6 18l8.5-6L6 6v12zm2-8.14L11.03 12 8 14.14V9.86zM14 6h2v12h-2z"/></svg>
+          </button>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="progress-wrap">
+          <div class="progress-bar" id="progressBar">
+            <div class="progress-fill" id="progressFill"></div>
+            <div class="progress-thumb" id="progressThumb"></div>
+          </div>
+          <div class="time-display">
+            <span id="currentTime">0:00</span>
+            <span id="totalTime">0:00</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Song list -->
+      <div class="song-list glass-card">
+        <div class="song-list-header">Playlist</div>
+        <div class="song-item active" data-index="0">
+          <div class="song-num">01</div>
+          <div class="song-details">
+            <div class="song-title">Perfect</div>
+            <div class="song-by">Ed Sheeran</div>
+          </div>
+          <div class="song-duration">4:23</div>
+        </div>
+        <div class="song-item" data-index="1">
+          <div class="song-num">02</div>
+          <div class="song-details">
+            <div class="song-title">All of Me</div>
+            <div class="song-by">John Legend</div>
+          </div>
+          <div class="song-duration">4:29</div>
+        </div>
+        <div class="song-item" data-index="2">
+          <div class="song-num">03</div>
+          <div class="song-details">
+            <div class="song-title">A Thousand Years</div>
+            <div class="song-by">Christina Perri</div>
+          </div>
+          <div class="song-duration">4:45</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hidden audio element -->
+    <audio id="audioPlayer"></audio>
+  </section>
+
+
+  <!-- ===================== GALLERY SECTION ===================== -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-header reveal">
+      <div class="section-tag">Our Story</div>
+      <h2 class="section-title">Captured Moments</h2>
+      <p class="section-sub">Every photo is a page in our love story</p>
+    </div>
+
+    <div class="gallery-grid">
+
+      <!-- Row 1 -->
+      <div class="gallery-item large reveal-item" data-delay="0">
+        <div class="gallery-inner">
+          <img src="images/photo1.jpeg" alt="Photo 1" loading="lazy" onerror="this.parentElement.classList.add('placeholder-img')" />
+          <div class="gallery-overlay">
+            <span class="gallery-date">May 17, 2026</span>
+            <span class="gallery-caption">Photobooth Pixelab</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal-item" data-delay="100">
+        <div class="gallery-inner">
+          <img src="images/photo2.jpg" alt="Photo 2" loading="lazy" onerror="this.parentElement.classList.add('placeholder-img')" />
+          <div class="gallery-overlay">
+            <span class="gallery-date">Apr 24, 2026</span>
+            <span class="gallery-caption">Make a keychain</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal-item" data-delay="200">
+        <div class="gallery-inner">
+          <img src="images/photo3.jpeg" alt="Photo 3" loading="lazy" onerror="this.parentElement.classList.add('placeholder-img')" />
+          <div class="gallery-overlay">
+            <span class="gallery-date">Dec 27, 2025</span>
+            <span class="gallery-caption">She's a birthday girl</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2 — Video -->
+      <div class="gallery-item reveal-item" data-delay="50">
+        <div class="gallery-inner video-item">
+          <video src="videos/video22.MOV" autoplay muted loop playsinline></video>
+          <div class="video-play-btn">
+            <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="gallery-overlay">
+            <span class="gallery-date">Apr 24, 2026</span>
+            <span class="gallery-caption">Sweet smile</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item large reveal-item" data-delay="150">
+        <div class="gallery-inner">
+          <img src="images/photo4.jpeg" alt="Photo 4" loading="lazy" onerror="this.parentElement.classList.add('placeholder-img')" />
+          <div class="gallery-overlay">
+            <span class="gallery-date">May 24, 2026</span>
+            <span class="gallery-caption">Like my angel</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="gallery-item reveal-item" data-delay="0">
+        <div class="gallery-inner">
+          <img src="images/photo5.jpeg" alt="Photo 5" loading="lazy" onerror="this.parentElement.classList.add('placeholder-img')" />
+          <div class="gallery-overlay">
+            <span class="gallery-date">Dec 26, 2025</span>
+            <span class="gallery-caption">My birtday</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal-item" data-delay="100">
+        <div class="gallery-inner">
+          <img src="images/photo6.jpeg" alt="Photo 6" loading="lazy" onerror="this.parentElement.classList.add('placeholder-img')" />
+          <div class="gallery-overlay">
+            <span class="gallery-date">May 17, 2026</span>
+            <span class="gallery-caption">Kayutangan Heritage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal-item" data-delay="200">
+        <div class="gallery-inner video-item">
+          <video src="videos/video11.MOV" autoplay muted loop playsinline></video>
+          <div class="video-play-btn">
+            <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="gallery-overlay">
+            <span class="gallery-date">Apr 04, 2026</span>
+            <span class="gallery-caption">Painting with you</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!-- ===================== LOVE COUNTER ===================== -->
+  <section class="counter-section reveal">
+    <div class="counter-grid">
+      <div class="counter-item glass-card">
+        <div class="counter-value" id="daysCount">0</div>
+        <div class="counter-label">Days Together</div>
+      </div>
+      <div class="counter-item glass-card">
+        <div class="counter-value" id="hoursCount">0</div>
+        <div class="counter-label">Hours of Love</div>
+      </div>
+      <div class="counter-item glass-card">
+        <div class="counter-value" id="momentsCount">∞</div>
+        <div class="counter-label">Precious Moments</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-heart">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </div>
+    <p class="footer-text">Made with love, for the one who has my heart.</p>
+    <p class="footer-small">© 2026 — Forever &amp; Always</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

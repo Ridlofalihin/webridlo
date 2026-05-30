@@ -1,7 +1,42 @@
 /* ============================================================
    COUPLE WEBSITE — script.js
    ============================================================ */
+const correctPin = "281225";
 
+const unlockBtn = document.getElementById("unlockBtn");
+const pinInput = document.getElementById("pinInput");
+const lockScreen = document.getElementById("lockScreen");
+const lockError = document.getElementById("lockError");
+
+unlockBtn.addEventListener("click", () => {
+
+  if(pinInput.value === correctPin){
+
+    gsap.to(lockScreen,{
+      opacity:0,
+      duration:0.8,
+      onComplete:()=>{
+        lockScreen.style.display = "none";
+      }
+    });
+
+  } else {
+
+    lockError.style.display = "block";
+
+    gsap.fromTo(".lock-card",
+      {x:-10},
+      {
+        x:10,
+        duration:0.08,
+        repeat:5,
+        yoyo:true
+      }
+    );
+
+  }
+
+});
 // ── Cursor glow ──────────────────────────────────────────────
 const cursorGlow = document.getElementById('cursorGlow');
 document.addEventListener('mousemove', (e) => {

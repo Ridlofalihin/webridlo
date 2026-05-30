@@ -30,6 +30,108 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.lock-screen{
+  position: fixed;
+  inset: 0;
+
+  background:
+    radial-gradient(circle at top,
+    rgba(255, 105, 180, 0.664),
+    rgba(10, 10, 20, 0.521));
+
+  backdrop-filter: blur(30px);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  z-index:99999;
+}
+
+.lock-card{
+  width: 340px;
+
+  padding: 38px;
+
+  border-radius: 32px;
+
+  background: rgba(255,255,255,0.08);
+
+  border: 1px solid rgba(255,255,255,0.12);
+
+  backdrop-filter: blur(20px);
+
+  text-align:center;
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.25);
+}
+
+.lock-title{
+  font-size: 28px;
+  color:white;
+  font-weight:600;
+  margin-bottom:12px;
+}
+
+.lock-sub{
+  color:rgba(255,255,255,0.7);
+  margin-bottom:28px;
+  font-size:14px;
+}
+
+#pinInput{
+  width:100%;
+  padding:16px;
+  border:none;
+  outline:none;
+
+  border-radius:18px;
+
+  background: rgba(255, 255, 255, 0.199);
+
+  color:white;
+
+  text-align:center;
+
+  font-size:18px;
+  letter-spacing:4px;
+}
+
+#unlockBtn{
+  width:100%;
+  margin-top:18px;
+
+  padding:16px;
+
+  border:none;
+  border-radius:18px;
+
+  background: linear-gradient(
+    135deg,
+    #ff4fa3,
+    #ff85c0
+  );
+
+  color:white;
+  font-size:16px;
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+#unlockBtn:hover{
+  transform:translateY(-2px);
+}
+
+.lock-error{
+  margin-top:16px;
+  color:#ff9ac7;
+  display:none;
+}
+
 /* ── Reset & Base ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
@@ -830,7 +932,7 @@ button { cursor: none; border: none; background: none; font-family: inherit; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: 28px;
+  margin-top: 10px;
   padding: 16px 34px;
   border-radius: 999px;
 

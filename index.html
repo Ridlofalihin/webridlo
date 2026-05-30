@@ -10,6 +10,37 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- LOCK SCREEN -->
+  <div class="lock-screen" id="lockScreen">
+
+    <div class="lock-card">
+
+      <div class="lock-title">
+        Enter Our Special Date ❤️
+      </div>
+
+      <div class="lock-sub">
+        Hint: Our anniversary date
+      </div>
+
+      <input
+        type="password"
+        id="pinInput"
+        placeholder="DDMMYY"
+        maxlength="8"
+      >
+
+      <button id="unlockBtn">
+        Unlock Memories
+      </button>
+
+      <div class="lock-error" id="lockError">
+        Wrong date 💔
+      </div>
+
+    </div>
+
+  </div>
 
   <!-- Floating Hearts Canvas -->
   <canvas id="heartsCanvas"></canvas>
@@ -40,9 +71,7 @@
         Every moment with you feels like the most beautiful dream I never want to wake from.
       </p>
 
-      <a href="https://projects.web-ar.studio/Moment_AR" target="_blank" class="ar-btn">
-       <span>✨ Open Our AR Memory</span>
-      </a>
+      
 
       <div class="hero-actions">
         <button class="btn-ghost" onclick="smoothScrollTo('#music')">
@@ -54,6 +83,9 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
         </button>
       </div>
+      <a href="https://projects.web-ar.studio/Moment_AR" target="_blank" class="ar-btn">
+       <span>✨ Open Our AR Memory</span>
+      </a>
     </div>
 
 

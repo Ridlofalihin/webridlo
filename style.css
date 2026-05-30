@@ -44,6 +44,8 @@
   display:flex;
   align-items:center;
   justify-content:center;
+  touch-action: none;
+  overscroll-behavior: none;
 
   z-index:99999;
 }
@@ -130,6 +132,11 @@
   margin-top:16px;
   color:#ff9ac7;
   display:none;
+}
+
+body.locked{
+  overflow: hidden;
+  height: 100vh;
 }
 
 /* ── Reset & Base ── */

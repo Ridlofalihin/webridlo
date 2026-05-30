@@ -6,11 +6,13 @@ const correctPin = "281225";
 const unlockBtn = document.getElementById("unlockBtn");
 const pinInput = document.getElementById("pinInput");
 const lockScreen = document.getElementById("lockScreen");
+document.body.classList.add("locked");
 const lockError = document.getElementById("lockError");
 
 unlockBtn.addEventListener("click", () => {
 
   if(pinInput.value === correctPin){
+    document.body.classList.remove("locked");
 
     gsap.to(lockScreen,{
       opacity:0,

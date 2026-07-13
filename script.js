@@ -1,7 +1,7 @@
 /* ============================================================
    COUPLE WEBSITE — script.js
    ============================================================ */
-const correctPin = "281225";
+const correctPin = "140226";
 
 const unlockBtn = document.getElementById("unlockBtn");
 const pinInput = document.getElementById("pinInput");
@@ -133,7 +133,7 @@ document.querySelectorAll('.video-item').forEach((item) => {
 // ── Love Counter ──────────────────────────────────────────────
 function updateCounter() {
   // Change this date to your real start date
-  const startDate = new Date('2025-12-28T00:00:00');
+  const startDate = new Date('2026-02-14T00:00:00');
   const now       = new Date();
   const diffMs    = now - startDate;
 
@@ -237,8 +237,8 @@ document.addEventListener('click', (e) => {
 
 // ── Music Player ──────────────────────────────────────────────
 const songs = [
-  { title: 'Perfect',           artist: 'Ed Sheeran',       src: 'music/song1.mp3', duration: '4:23' },
-  { title: 'All of Me',         artist: 'John Legend',       src: 'music/song2.mp3', duration: '4:29' },
+  { title: 'Aku Milikmu',           artist: 'Ari Lasso',       src: 'music/song2.mp3', duration: '5:32' },
+  { title: 'Perfect',         artist: 'Ed Sheeran',       src: 'music/song1.mp3', duration: '4:23' },
   { title: 'A Thousand Years',  artist: 'Christina Perri',   src: 'music/song3.mp3', duration: '4:45' }
 ];
 
